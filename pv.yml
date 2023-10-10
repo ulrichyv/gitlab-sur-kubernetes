@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: medium
   hostPath:
-    path: C:\tools
+    path: C:\\tools
