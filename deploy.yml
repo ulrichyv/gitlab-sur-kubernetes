@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab
+  template:
+    metadata:
+      labels:
+        app: gitlab
+    spec:
+      containers:
+        - name: gitlab
+          image: gitlab/gitlab-ce:16.2.8-ce.0
+          env:
+            - name: DB_HOST
+              value:  postgres.local
+            - name: DB_PORT
+              value: "30007"
+            - name: DB_NAME
+              value: gitlabdb
+            - name: DB_USER
+              value: gitlab
+            - name: DB_PASSWORD
+              value: gitlab
+
+
+
+
+         
