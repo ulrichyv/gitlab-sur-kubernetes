@@ -17,7 +17,7 @@ spec:
           image: gitlab/gitlab-ce:16.2.8-ce.0
           env:
             - name: DB_HOST
-              value:  postgres.local
+              value: postgres.local
             - name: DB_PORT
               value: "30007"
             - name: DB_NAME
@@ -26,8 +26,10 @@ spec:
               value: gitlab
             - name: DB_PASSWORD
               value: gitlab
-
-
-
-
-         
+          volumeMounts:
+            - name: gitlab-volume
+              mountPath: /var/gitlab
+      volumes:
+        - name: gitlab-volume
+          persistentVolumeClaim:
+            claimName: pvc_gitlab
