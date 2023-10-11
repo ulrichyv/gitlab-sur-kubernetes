@@ -27,9 +27,9 @@ spec:
             - name: DB_PASSWORD
               value: gitlab
           volumeMounts:
-            - name: gitlab-volume
-              mountPath: /var/gitlab
+            - mountPath: /etc/gitlab
+              name: cache-volume
       volumes:
-        - name: gitlab-volume
+        - name: cache-volume
           persistentVolumeClaim:
-            claimName: pvc_gitlab
+            claimName: pvc-gitlab

@@ -8,5 +8,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: medium
-  volumeName: pv_gitlab
+  storageClassName: hostpath
+  selector:
+    matchLabels:
+      type: local
