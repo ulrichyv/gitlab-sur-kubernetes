@@ -30,6 +30,13 @@ spec:
               value: MyPassword123
             - name: GITLAB_ROOT_EMAIL
               value: tankouantchancthou@gmail.com
+          resources:
+            limits:
+              cpu: "2"
+              memory: "5Gi"
+            requests:
+              cpu: "1"
+              memory: "5Gi"
           volumeMounts:
             - mountPath: /etc/gitlab
               name: cache-volume
