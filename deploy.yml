@@ -21,11 +21,15 @@ spec:
             - name: DB_PORT
               value: "30007"
             - name: DB_NAME
-              value: gitlab_db
+              value: gitlab-db
             - name: DB_USER
               value: gitlab
             - name: DB_PASSWORD
               value: gitlab
+            - name: GITLAB_ROOT_PASSWORD
+              value: MyPassword123
+            - name: GITLAB_ROOT_EMAIL
+              value: tankouantchancthou@gmail.com
           volumeMounts:
             - mountPath: /etc/gitlab
               name: cache-volume

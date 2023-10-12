@@ -9,6 +9,10 @@ spec:
       env:
         - name: DB_HOST
           value: 192.168.8.102
+        - name: GITLAB_ROOT_PASSWORD
+        - value : gitlab 
+        - name: GITLAB_ROOT_EMAIL
+        - value : tankouantchancthou@gmail.com
         - name: DB_PORT
           value: "5432"
         - name: DB_NAME
