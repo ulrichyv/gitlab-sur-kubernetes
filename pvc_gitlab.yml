@@ -7,7 +7,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 16Gi
+      storage: 20Gi
   storageClassName: hostpath
   selector:
     matchLabels:
