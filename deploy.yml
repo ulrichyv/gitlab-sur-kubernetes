@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gitlab-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: gitlab
@@ -14,31 +14,21 @@ spec:
     spec:
       containers:
         - name: gitlab
-          image: gitlab/gitlab-ce:latest
+          image: gitlab/gitlab-ce:nightly
           env:
-            - name: DB_HOST
-              value: postgres.local
-            - name: DB_PORT
-              value: "30007"
-            - name: DB_NAME
-              value: gitlab-db
-            - name: DB_USER
-              value: gitlab
-            - name: DB_PASSWORD
-              value: gitlab
             - name: GITLAB_ROOT_PASSWORD
-              value: MfhgfhfSSd123
+              value: MyPassword123
             - name: GITLAB_ROOT_EMAIL
               value: tankouantchancthou@gmail.com
           resources:
             limits:
-              cpu: "5"
-              memory: "10Gi"
-            requests:
               cpu: "4"
+              memory: "7Gi"
+            requests:
+              cpu: "3"
               memory: "5Gi"
           volumeMounts:
-            - mountPath: /etc/gitlab
+            - mountPath: /var/opt/gitlab
               name: cache-volume
       volumes:
         - name: cache-volume
